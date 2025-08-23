@@ -233,6 +233,7 @@ const Header = ({ isDark, toggleTheme }) => {
               Contact
             </Link>
           </li>
+
         </ul>
       </div>
     </header>

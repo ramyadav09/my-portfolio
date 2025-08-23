@@ -66,7 +66,7 @@ const Intro = ({ onExplore, isDark, toggleTheme }) => {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2">
           <button
             onClick={onExplore}
             className="group px-8 py-4 rounded-2xl text-white font-semibold shadow-xl transition-all duration-300 hover:scale-105"

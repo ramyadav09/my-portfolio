@@ -1,34 +1,4 @@
-import { useState, useEffect } from 'react';
-
-const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(true);
-
-  useEffect(() => {
-    // Apply theme immediately on mount
-    applyTheme(isDark);
-  }, []);
-
-  const applyTheme = (dark) => {
-    const root = document.documentElement;
-    if (dark) {
-      root.style.setProperty('--bg-primary', '#0f0f23');
-      root.style.setProperty('--bg-secondary', '#1e1b4b');
-      root.style.setProperty('--text-primary', '#ffffff');
-      root.style.setProperty('--text-secondary', '#d1d5db');
-    } else {
-      root.style.setProperty('--bg-primary', '#ffffff');
-      root.style.setProperty('--bg-secondary', '#f3f4f6');
-      root.style.setProperty('--text-primary', '#111827');
-      root.style.setProperty('--text-secondary', '#6b7280');
-    }
-  };
-
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    applyTheme(newTheme);
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
-  };
+const ThemeToggle = ({ isDark, toggleTheme }) => {
 
   return (
     <button

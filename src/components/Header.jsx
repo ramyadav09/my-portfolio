@@ -1,134 +1,202 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
-const Header = ({ isDark, toggleTheme }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <header 
-      className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg border-b shadow-lg transition-all duration-300"
-      style={{
-        background: isDark ? 'rgba(15, 15, 35, 0.95)' : 'rgba(255, 255, 255, 0.95)',
-        borderColor: isDark ? 'rgba(168, 85, 247, 0.2)' : 'rgba(59, 130, 246, 0.2)'
-      }}
-    >
-      <nav className="flex items-center justify-between px-4 sm:px-6 md:px-16 py-4">
+    <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-slate-900/95 via-purple-900/95 to-indigo-900/95 backdrop-blur-lg border-b border-purple-500/20 shadow-lg">
+      <nav className="flex items-center justify-between px-4 sm:px-6 md:px-16 py-3 sm:py-4">
         <div className="flex items-center space-x-2">
-          <div 
-            className="w-10 h-10 rounded-full flex items-center justify-center shadow-lg"
-            style={{background: 'linear-gradient(135deg, #06b6d4, #7c3aed)'}}
-          >
-            <span className="text-white font-bold text-lg">R</span>
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center shadow-lg">
+            <span className="text-white font-bold text-sm sm:text-lg">R</span>
           </div>
-          <h1 
-            className="text-2xl md:text-3xl font-bold"
-            style={{background: 'linear-gradient(135deg, #06b6d4, #7c3aed, #ec4899)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}
-          >
+          <h1 className="text-lg sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
             Portfolio
           </h1>
         </div>
-        
-        <ul className="hidden md:flex gap-6 text-base md:text-lg font-medium items-center">
-          {[{to: "/", label: "Home"}, {to: "/about", label: "About"}, {to: "/services", label: "Services"}, {to: "/experience", label: "Experience"}, {to: "/portfolio", label: "Portfolio"}, {to: "/contact", label: "Contact"}].map((item) => (
-            <li key={item.to} className="relative group">
-              <Link 
-                to={item.to} 
-                className="transition-all duration-300 relative hover:scale-105"
-                style={{color: isDark ? '#d1d5db' : '#374151'}}
-              >
-                {item.label}
-                <span 
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300"
-                  style={{background: 'linear-gradient(90deg, #06b6d4, #7c3aed)'}}
-                ></span>
-              </Link>
-            </li>
-          ))}
-          <li>
-            <button
-              onClick={toggleTheme}
-              className="relative w-14 h-7 rounded-full transition-all duration-300 focus:outline-none ml-4"
-              style={{background: isDark ? 'linear-gradient(90deg, #7c3aed, #ec4899)' : 'linear-gradient(90deg, #fbbf24, #f97316)'}}
+
+        {/* Desktop Menu */}
+        <ul className="hidden lg:flex gap-6 text-sm md:text-base font-medium">
+          <li className="relative group">
+            <Link 
+              to="/" 
+              className={`transition-all duration-300 relative ${
+                isActive('/') 
+                  ? 'text-cyan-400' 
+                  : 'text-gray-300 hover:text-cyan-400'
+              }`}
             >
-              <div
-                className="absolute top-1 w-5 h-5 bg-white rounded-full shadow-md transition-all duration-300 flex items-center justify-center"
-                style={{left: isDark ? '32px' : '4px'}}
-              >
-                <span className="text-xs">{isDark ? '🌙' : '☀️'}</span>
-              </div>
-            </button>
+              Home
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-300 ${
+                isActive('/') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
+            </Link>
+          </li>
+          <li className="relative group">
+            <Link 
+              to="/about" 
+              className={`transition-all duration-300 relative ${
+                isActive('/about') 
+                  ? 'text-cyan-400' 
+                  : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              About
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-300 ${
+                isActive('/about') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
+            </Link>
+          </li>
+          <li className="relative group">
+            <Link 
+              to="/experience" 
+              className={`transition-all duration-300 relative ${
+                isActive('/experience') 
+                  ? 'text-cyan-400' 
+                  : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              Experience
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-300 ${
+                isActive('/experience') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
+            </Link>
+          </li>
+          <li className="relative group">
+            <Link 
+              to="/services" 
+              className={`transition-all duration-300 relative ${
+                isActive('/services') 
+                  ? 'text-cyan-400' 
+                  : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              Services
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-300 ${
+                isActive('/services') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
+            </Link>
+          </li>
+          <li className="relative group">
+            <Link 
+              to="/portfolio" 
+              className={`transition-all duration-300 relative ${
+                isActive('/portfolio') 
+                  ? 'text-cyan-400' 
+                  : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              Portfolio
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-300 ${
+                isActive('/portfolio') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
+            </Link>
+          </li>
+
+          <li className="relative group">
+            <Link 
+              to="/contact" 
+              className={`transition-all duration-300 relative ${
+                isActive('/contact') 
+                  ? 'text-cyan-400' 
+                  : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              Contact
+              <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-300 ${
+                isActive('/contact') ? 'w-full' : 'w-0 group-hover:w-full'
+              }`}></span>
+            </Link>
           </li>
         </ul>
 
-        <div className="md:hidden flex items-center gap-3">
-          <button
-            onClick={toggleTheme}
-            className="relative w-16 h-8 rounded-full transition-all duration-300 focus:outline-none shadow-lg hover:scale-105 border-2"
-            style={{
-              background: isDark ? 'linear-gradient(135deg, #7c3aed, #ec4899)' : 'linear-gradient(135deg, #fbbf24, #f97316)',
-              borderColor: isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)'
-            }}
-          >
-            <div
-              className="absolute w-6 h-6 bg-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
-              style={{
-                left: isDark ? '36px' : '2px',
-                top: '50%',
-                transform: 'translateY(-50%)'
-              }}
-            >
-              <span className="text-sm">{isDark ? '🌙' : '☀️'}</span>
-            </div>
-          </button>
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex flex-col justify-center items-center w-8 h-8 space-y-1"
-          >
-            <span className={`w-6 h-0.5 transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} style={{background: isDark ? '#d1d5db' : '#374151'}}></span>
-            <span className={`w-6 h-0.5 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} style={{background: isDark ? '#d1d5db' : '#374151'}}></span>
-            <span className={`w-6 h-0.5 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} style={{background: isDark ? '#d1d5db' : '#374151'}}></span>
-          </button>
-        </div>
+        {/* Hamburger Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1"
+        >
+          <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+        </button>
       </nav>
 
-      {isMenuOpen && (
-        <div 
-          className="md:hidden backdrop-blur-lg border-b"
-          style={{
-            background: isDark ? 'rgba(15, 15, 35, 0.98)' : 'rgba(255, 255, 255, 0.98)',
-            borderColor: isDark ? 'rgba(168, 85, 247, 0.2)' : 'rgba(59, 130, 246, 0.2)'
-          }}
-        >
-          <ul className="flex flex-col py-4">
-            {[{to: "/", label: "Home"}, {to: "/about", label: "About"}, {to: "/services", label: "Services"}, {to: "/experience", label: "Experience"}, {to: "/portfolio", label: "Portfolio"}, {to: "/contact", label: "Contact"}].map((item) => (
-              <li key={item.to}>
-                <Link
-                  to={item.to}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block px-6 py-3 transition-all duration-300"
-                  style={{color: isDark ? '#d1d5db' : '#374151'}}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-            <li className="flex justify-center py-3">
-              <button
-                onClick={toggleTheme}
-                className="relative w-14 h-7 rounded-full transition-all duration-300 focus:outline-none"
-                style={{background: isDark ? 'linear-gradient(90deg, #7c3aed, #ec4899)' : 'linear-gradient(90deg, #fbbf24, #f97316)'}}
-              >
-                <div
-                  className="absolute top-1 w-5 h-5 bg-white rounded-full shadow-md transition-all duration-300 flex items-center justify-center"
-                  style={{left: isDark ? '32px' : '4px'}}
-                >
-                  <span className="text-xs">{isDark ? '🌙' : '☀️'}</span>
-                </div>
-              </button>
-            </li>
-          </ul>
-        </div>
-      )}
+      {/* Mobile Menu */}
+      <div className={`lg:hidden bg-slate-900/95 backdrop-blur-lg border-t border-purple-500/20 transition-all duration-300 ${isOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+        <ul className="flex flex-col space-y-4 p-6">
+          <li>
+            <Link
+              to="/"
+              onClick={() => setIsOpen(false)}
+              className={`block transition-colors duration-300 ${
+                isActive('/') ? 'text-cyan-400' : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              onClick={() => setIsOpen(false)}
+              className={`block transition-colors duration-300 ${
+                isActive('/about') ? 'text-cyan-400' : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/experience"
+              onClick={() => setIsOpen(false)}
+              className={`block transition-colors duration-300 ${
+                isActive('/experience') ? 'text-cyan-400' : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              Experience
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/services"
+              onClick={() => setIsOpen(false)}
+              className={`block transition-colors duration-300 ${
+                isActive('/services') ? 'text-cyan-400' : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/portfolio"
+              onClick={() => setIsOpen(false)}
+              className={`block transition-colors duration-300 ${
+                isActive('/portfolio') ? 'text-cyan-400' : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              Portfolio
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/contact"
+              onClick={() => setIsOpen(false)}
+              className={`block transition-colors duration-300 ${
+                isActive('/contact') ? 'text-cyan-400' : 'text-gray-300 hover:text-cyan-400'
+              }`}
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </div>
     </header>
   );
 };

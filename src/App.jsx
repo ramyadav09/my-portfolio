@@ -9,7 +9,7 @@ import Services from "./components/Services";
 import Intro from "./components/Intro";
 import IntroPage from "./components/IntroPage";
 import ThemeToggle from "./components/ThemeToggle";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
     </div>
   );
 }
-const AppRouter = createBrowserRouter([
+const AppRouter = createHashRouter([
   {
     path: "/",
     element: <App />,

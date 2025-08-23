@@ -1,9 +1,8 @@
-import { useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import profilePic from "../assets/ppp.jpg";
 
-const Body = () => {
-  const { isDark } = useOutletContext();
+const Body = ({ isDark }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -13,7 +12,7 @@ const Body = () => {
 
   return (
     <section 
-      className={`flex flex-col md:flex-row items-center justify-center min-h-screen px-6 md:px-12 pt-20 transition-all duration-1000 ${
+      className={`flex flex-col-reverse lg:flex-row items-center justify-center min-h-screen px-4 sm:px-6 md:px-8 lg:px-12 pt-20 pb-8 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
       style={{
@@ -23,7 +22,7 @@ const Body = () => {
         color: isDark ? "white" : "#111827",
       }}
     >
-      <div className={`flex-1 text-center md:text-left space-y-5 md:space-y-7 transition-all duration-1000 delay-300 ${
+      <div className={`flex-1 text-center lg:text-left space-y-4 sm:space-y-5 lg:space-y-7 max-w-2xl lg:max-w-none transition-all duration-1000 delay-300 ${
         isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
       }`}>
         <h2 
@@ -32,7 +31,7 @@ const Body = () => {
         >
           👋 Hi, I'm Ready to Innovate
         </h2>
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight">
           Frontend{" "}
           <span 
             style={{
@@ -96,14 +95,16 @@ const Body = () => {
         </div>
 
         <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6">
-          <button 
-            className="px-6 py-3 rounded-xl text-white font-semibold shadow-md transition-all duration-300 hover:scale-105"
+          <Link 
+            to="/portfolio"
+            className="px-6 py-3 rounded-xl text-white font-semibold shadow-md transition-all duration-300 hover:scale-105 text-center"
             style={{ background: "linear-gradient(135deg, #06b6d4, #7c3aed)" }}
           >
             Projects 🚀
-          </button>
-          <button 
-            className="px-6 py-3 rounded-xl font-semibold shadow-md transition-all duration-300 hover:scale-105"
+          </Link>
+          <Link 
+            to="/contact"
+            className="px-6 py-3 rounded-xl font-semibold shadow-md transition-all duration-300 hover:scale-105 text-center"
             style={{
               border: `2px solid ${isDark ? "#a78bfa" : "#7c3aed"}`,
               color: isDark ? "#a78bfa" : "#7c3aed",
@@ -111,17 +112,17 @@ const Body = () => {
             }}
           >
             Contact 📩
-          </button>
+          </Link>
         </div>
       </div>
 
-      <div className={`flex-1 mt-10 md:mt-0 flex justify-center transition-all duration-1000 delay-500 ${
+      <div className={`flex-1 mb-8 lg:mt-0 flex justify-center transition-all duration-1000 delay-500 ${
         isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
       }`}>
         <img
           src={profilePic}
           alt="Ram Kumar Yadav"
-          className="w-64 sm:w-80 md:w-96 rounded-full hover:scale-105 transition-transform duration-500"
+          className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full object-cover hover:scale-105 transition-transform duration-500"
           style={{
             filter: isDark 
               ? "drop-shadow(0 0 30px rgba(168,85,247,0.6))" 

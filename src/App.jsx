@@ -9,8 +9,7 @@ import Services from "./components/Services";
 import Intro from "./components/Intro";
 import IntroPage from "./components/IntroPage";
 import ThemeToggle from "./components/ThemeToggle";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Outlet } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [isDark, setIsDark] = useState(true);
@@ -25,48 +24,21 @@ function App() {
   }
 
   return (
-    <div>
-      <Header />
-      <Outlet context={{ isDark }} />
-      <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
-    </div>
+    <Router>
+      <div>
+        <Header isDark={isDark} toggleTheme={toggleTheme} />
+        <Routes>
+          <Route path="/" element={<Body isDark={isDark} />} />
+          <Route path="/about" element={<About isDark={isDark} />} />
+          <Route path="/experience" element={<Experience isDark={isDark} />} />
+          <Route path="/services" element={<Services isDark={isDark} />} />
+          <Route path="/contact" element={<Contact isDark={isDark} />} />
+          <Route path="/portfolio" element={<Portfolio isDark={isDark} />} />
+          <Route path="/intro" element={<IntroPage isDark={isDark} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
-const AppRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Body />,
-      },
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/experience",
-        element: <Experience />,
-      },
-      {
-        path: "/services",
-        element: <Services />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-      {
-        path: "/portfolio",
-        element: <Portfolio />,
-      },
-      {
-        path: "/intro",
-        element: <IntroPage />,
-      },
-    ],
-  },
-]);
 
-export default AppRouter;
+export default App;

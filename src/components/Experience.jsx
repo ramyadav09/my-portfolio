@@ -1,8 +1,6 @@
-import { useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const Experience = () => {
-  const { isDark } = useOutletContext();
+const Experience = ({ isDark }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

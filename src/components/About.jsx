@@ -1,9 +1,8 @@
 import profilePic from "../assets/pp.png";
-import { Link, useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const About = () => {
-  const { isDark } = useOutletContext();
+const About = ({ isDark }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -20,7 +19,7 @@ const About = () => {
 
   return (
     <div
-      className={`min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 md:px-12 lg:px-20 pt-16 sm:pt-20 relative overflow-hidden transition-all duration-1000 ${
+      className={`min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 pt-16 sm:pt-20 pb-8 relative overflow-hidden transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
       style={{
@@ -30,7 +29,7 @@ const About = () => {
         color: isDark ? "white" : "#111827",
       }}
     >
-      <div className={`lg:w-1/2 text-center lg:text-left space-y-6 sm:space-y-8 order-2 lg:order-1 z-10 transition-all duration-1000 delay-300 ${
+      <div className={`lg:w-1/2 text-center lg:text-left space-y-4 sm:space-y-6 lg:space-y-8 order-2 lg:order-1 z-10 max-w-2xl lg:max-w-none transition-all duration-1000 delay-300 ${
         isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
       }`}>
         <div className="space-y-3 sm:space-y-4">
@@ -41,7 +40,7 @@ const About = () => {
             👋 Hello, I'm
           </h2>
           <h1
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold"
             style={{
               background: "linear-gradient(135deg, #06b6d4, #7c3aed, #ec4899)",
               WebkitBackgroundClip: "text",
@@ -50,12 +49,56 @@ const About = () => {
           >
             Ram Kumar Yadav
           </h1>
-          <p
-            className="text-base sm:text-lg font-medium"
-            style={{ color: isDark ? "#a78bfa" : "#7c3aed" }}
-          >
-            Full Stack Developer & UI/UX Enthusiast
-          </p>
+          <div className="space-y-3">
+            <p
+              className="text-sm sm:text-base font-semibold px-4 py-2 rounded-full border inline-block"
+              style={{
+                background: isDark ? "rgba(6, 182, 212, 0.1)" : "rgba(59, 130, 246, 0.1)",
+                borderColor: isDark ? "#06b6d4" : "#3b82f6",
+                color: isDark ? "#67e8f9" : "#1e40af"
+              }}
+            >
+              🎓 2nd Year BTech CSE • KIIT University
+            </p>
+            <p
+              className="text-base sm:text-lg font-medium"
+              style={{ color: isDark ? "#a78bfa" : "#7c3aed" }}
+            >
+              Full Stack Developer & UI/UX Enthusiast
+            </p>
+            <div className="flex flex-wrap gap-2 justify-center lg:hidden">
+              <span
+                className="text-xs sm:text-sm font-medium px-3 py-1 rounded-full border"
+                style={{
+                  background: isDark ? "rgba(124, 58, 237, 0.1)" : "rgba(124, 58, 237, 0.1)",
+                  borderColor: isDark ? "#7c3aed" : "#7c3aed",
+                  color: isDark ? "#a78bfa" : "#7c3aed"
+                }}
+              >
+                🚀 5+ Projects
+              </span>
+              <span
+                className="text-xs sm:text-sm font-medium px-3 py-1 rounded-full border"
+                style={{
+                  background: isDark ? "rgba(236, 72, 153, 0.1)" : "rgba(236, 72, 153, 0.1)",
+                  borderColor: isDark ? "#ec4899" : "#ec4899",
+                  color: isDark ? "#f9a8d4" : "#ec4899"
+                }}
+              >
+                📅 6+ Months Experience
+              </span>
+              <span
+                className="text-xs sm:text-sm font-medium px-3 py-1 rounded-full border"
+                style={{
+                  background: isDark ? "rgba(16, 185, 129, 0.1)" : "rgba(16, 185, 129, 0.1)",
+                  borderColor: isDark ? "#10b981" : "#10b981",
+                  color: isDark ? "#6ee7b7" : "#10b981"
+                }}
+              >
+                📞 24/7 Support
+              </span>
+            </div>
+          </div>
         </div>
 
         <div
@@ -121,8 +164,10 @@ const About = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-          <button
-            className="group px-6 sm:px-8 py-3 rounded-xl text-white font-semibold shadow-xl transition-all duration-300 hover:scale-105 text-sm sm:text-base"
+          <a
+            href="/resume.pdf"
+            download
+            className="group px-6 sm:px-8 py-3 rounded-xl text-white font-semibold shadow-xl transition-all duration-300 hover:scale-105 text-sm sm:text-base text-center"
             style={{ background: "linear-gradient(135deg, #06b6d4, #7c3aed)" }}
           >
             <span className="flex items-center justify-center gap-2">
@@ -131,7 +176,7 @@ const About = () => {
                 📄
               </span>
             </span>
-          </button>
+          </a>
           <Link
             to="/portfolio"
             className="px-6 sm:px-8 py-3 rounded-xl border-2 font-semibold transition-all duration-300 hover:scale-105 text-sm sm:text-base text-center"
@@ -214,7 +259,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
+        <div className="hidden lg:grid grid-cols-2 gap-4 w-full max-w-sm">
           {[
             { number: "5+", label: "Projects", icon: "🚀" },
             { number: "6+", label: "Months Exp", icon: "📅" },

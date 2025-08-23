@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
 
-const IntroPage = () => {
-  const { isDark } = useOutletContext();
+const IntroPage = ({ isDark }) => {
   const [currentText, setCurrentText] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const texts = ["Creative", "Modern", "Responsive", "Interactive"];

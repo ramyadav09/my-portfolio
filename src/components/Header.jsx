@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
-const Header = () => {
+const Header = ({ isDark, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -20,7 +20,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden lg:flex gap-6 text-sm md:text-base font-medium">
+        <ul className="hidden lg:flex gap-6 text-sm md:text-base font-medium items-center">
           <li className="relative group">
             <Link 
               to="/" 
@@ -96,7 +96,6 @@ const Header = () => {
               }`}></span>
             </Link>
           </li>
-
           <li className="relative group">
             <Link 
               to="/contact" 
@@ -112,21 +111,61 @@ const Header = () => {
               }`}></span>
             </Link>
           </li>
+          <li>
+            <button
+              onClick={toggleTheme}
+              className="w-16 h-8 rounded-full transition-all duration-300 shadow-lg relative"
+              style={{
+                background: isDark 
+                  ? 'linear-gradient(to right, #7c3aed, #ec4899)' 
+                  : 'linear-gradient(to right, #fbbf24, #f97316)'
+              }}
+            >
+              <div
+                className="absolute top-1 w-6 h-6 bg-white rounded-full shadow-md transition-all duration-300 flex items-center justify-center text-sm"
+                style={{
+                  left: isDark ? '4px' : '36px'
+                }}
+              >
+                {isDark ? '🌙' : '☀️'}
+              </div>
+            </button>
+          </li>
         </ul>
 
-        {/* Hamburger Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1"
-        >
-          <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-        </button>
+        {/* Mobile Controls */}
+        <div className="lg:hidden flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="w-14 h-7 rounded-full transition-all duration-300 shadow-lg relative"
+            style={{
+              background: isDark 
+                ? 'linear-gradient(to right, #7c3aed, #ec4899)' 
+                : 'linear-gradient(to right, #fbbf24, #f97316)'
+            }}
+          >
+            <div
+              className="absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-md transition-all duration-300 flex items-center justify-center text-xs"
+              style={{
+                left: isDark ? '3px' : '32px'
+              }}
+            >
+              {isDark ? '🌙' : '☀️'}
+            </div>
+          </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex flex-col justify-center items-center w-8 h-8 space-y-1"
+          >
+            <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+            <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden bg-slate-900/95 backdrop-blur-lg border-t border-purple-500/20 transition-all duration-300 ${isOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+      <div className={`lg:hidden bg-slate-900/95 backdrop-blur-lg border-t border-purple-500/20 transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <ul className="flex flex-col space-y-4 p-6">
           <li>
             <Link
@@ -183,7 +222,6 @@ const Header = () => {
               Portfolio
             </Link>
           </li>
-
           <li>
             <Link
               to="/contact"

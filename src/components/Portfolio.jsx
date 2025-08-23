@@ -1,8 +1,7 @@
-import { useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const Portfolio = () => {
-  const { isDark } = useOutletContext();
+const Portfolio = ({ isDark }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -250,14 +249,18 @@ const Portfolio = () => {
             Ready to bring your ideas to life? Let's create something amazing together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              className="px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 text-white"
+            <a 
+              href="https://github.com/ramyadav09"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 text-white text-center"
               style={{ background: 'linear-gradient(135deg, #06b6d4, #7c3aed)' }}
             >
               View All Projects
-            </button>
-            <button 
-              className="px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+            </a>
+            <Link 
+              to="/contact"
+              className="px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 text-center"
               style={{
                 border: `2px solid ${isDark ? '#06b6d4' : '#3b82f6'}`,
                 color: isDark ? '#06b6d4' : '#3b82f6',
@@ -265,7 +268,7 @@ const Portfolio = () => {
               }}
             >
               Contact Me
-            </button>
+            </Link>
           </div>
         </div>
       </div>

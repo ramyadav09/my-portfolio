@@ -1,17 +1,33 @@
-import { Link, useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Git from "../assets/github-sign.png";
 import Insta from "../assets/instagram.png";
 import LinkedIn from "../assets/linkedin.png";
 import Face from "../assets/fb.png";
-const Contact = () => {
-  const { isDark } = useOutletContext();
+const Contact = ({ isDark }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate form submission
+    setTimeout(() => {
+      alert('Message sent successfully! I\'ll get back to you soon.');
+      setFormData({ name: '', email: '', message: '' });
+      setIsSubmitting(false);
+    }, 1000);
+  };
 
   return (
     <section
@@ -187,10 +203,14 @@ const Contact = () => {
           >
             Send Me a Message
           </h3>
-          <form className="space-y-4 sm:space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
               placeholder="Your Name"
+              required
               className="w-full p-3 sm:p-4 rounded-xl border focus:outline-none focus:ring-2 transition-all text-sm sm:text-base"
               style={{
                 background: isDark
@@ -205,7 +225,11 @@ const Contact = () => {
             />
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               placeholder="Your Email"
+              required
               className="w-full p-3 sm:p-4 rounded-xl border focus:outline-none focus:ring-2 transition-all text-sm sm:text-base"
               style={{
                 background: isDark
@@ -219,7 +243,11 @@ const Contact = () => {
             />
             <textarea
               rows="4"
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
               placeholder="Your Message"
+              required
               className="w-full p-3 sm:p-4 rounded-xl border focus:outline-none focus:ring-2 transition-all resize-none text-sm sm:text-base"
               style={{
                 background: isDark
@@ -233,12 +261,13 @@ const Contact = () => {
             ></textarea>
             <button
               type="submit"
-              className="w-full py-3 sm:py-4 rounded-xl text-white font-semibold shadow-xl transition-all duration-300 hover:scale-105 text-sm sm:text-base"
+              disabled={isSubmitting}
+              className="w-full py-3 sm:py-4 rounded-xl text-white font-semibold shadow-xl transition-all duration-300 hover:scale-105 text-sm sm:text-base disabled:opacity-70 disabled:cursor-not-allowed"
               style={{
                 background: "linear-gradient(135deg, #06b6d4, #7c3aed)",
               }}
             >
-              Send Message ✨
+              {isSubmitting ? 'Sending...' : 'Send Message ✨'}
             </button>
           </form>
         </div>

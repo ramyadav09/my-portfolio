@@ -8,7 +8,7 @@ import Experience from "./components/Experience";
 import Services from "./components/Services";
 import Intro from "./components/Intro";
 import IntroPage from "./components/IntroPage";
-import ThemeToggle from "./components/ThemeToggle";
+
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
@@ -26,9 +26,8 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header isDark={isDark} toggleTheme={toggleTheme} />
       <Outlet context={{ isDark }} />
-      <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
     </div>
   );
 }

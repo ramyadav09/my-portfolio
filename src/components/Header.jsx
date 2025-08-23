@@ -1,7 +1,7 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useOutletContext } from "react-router-dom";
 import { useState } from "react";
 
-const Header = () => {
+const Header = ({ isDark, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -112,17 +112,59 @@ const Header = () => {
               }`}></span>
             </Link>
           </li>
+          <li>
+            <button
+              onClick={toggleTheme}
+              className="w-12 h-6 rounded-full transition-all duration-300 shadow-lg relative"
+              style={{
+                background: isDark 
+                  ? 'linear-gradient(to right, #7c3aed, #ec4899)' 
+                  : 'linear-gradient(to right, #fbbf24, #f97316)'
+              }}
+            >
+              <div
+                className="absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-md transition-all duration-300 flex items-center justify-center text-xs"
+                style={{
+                  left: isDark ? '2px' : '26px'
+                }}
+              >
+                {isDark ? '🌙' : '☀️'}
+              </div>
+            </button>
+          </li>
         </ul>
 
-        {/* Hamburger Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1"
-        >
-          <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-        </button>
+        <div className="lg:hidden flex items-center gap-4">
+          {/* Theme Toggle for Mobile */}
+          <button
+            onClick={toggleTheme}
+            className="w-10 h-5 rounded-full transition-all duration-300 shadow-lg relative"
+            style={{
+              background: isDark 
+                ? 'linear-gradient(to right, #7c3aed, #ec4899)' 
+                : 'linear-gradient(to right, #fbbf24, #f97316)'
+            }}
+          >
+            <div
+              className="absolute top-0.5 w-4 h-4 bg-white rounded-full shadow-md transition-all duration-300 flex items-center justify-center text-xs"
+              style={{
+                left: isDark ? '2px' : '22px'
+              }}
+            >
+              {isDark ? '🌙' : '☀️'}
+            </div>
+          </button>
+          
+          {/* Hamburger Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex flex-col justify-center items-center w-8 h-8 space-y-1"
+          >
+            <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+            <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+            <span className={`w-6 h-0.5 bg-cyan-400 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
@@ -195,6 +237,7 @@ const Header = () => {
               Contact
             </Link>
           </li>
+
         </ul>
       </div>
     </header>

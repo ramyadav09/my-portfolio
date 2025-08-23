@@ -272,6 +272,17 @@ const Portfolio = ({ isDark }) => {
           </div>
         </div>
       </div>
+
+      {/* Back to Home Button */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <Link
+          to="/"
+          className="flex items-center gap-2 px-4 py-2 rounded-full text-white font-medium shadow-lg transition-all duration-300 hover:scale-105"
+          style={{ background: "linear-gradient(135deg, #06b6d4, #7c3aed)" }}
+        >
+          ⬅ Home
+        </Link>
+      </div>
     </section>
   );
 };

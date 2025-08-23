@@ -13,7 +13,7 @@ const Body = () => {
 
   return (
     <section 
-      className={`flex flex-col md:flex-row items-center justify-center min-h-screen px-6 md:px-12 pt-20 transition-all duration-1000 ${
+      className={`flex flex-col-reverse md:flex-row items-center justify-center min-h-screen px-6 md:px-12 pt-20 transition-all duration-1000 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
       style={{
@@ -115,7 +115,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className={`flex-1 mt-10 md:mt-0 flex justify-center transition-all duration-1000 delay-500 ${
+      <div className={`flex-1 mb-10 md:mt-0 flex justify-center transition-all duration-1000 delay-500 ${
         isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
       }`}>
         <img

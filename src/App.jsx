@@ -8,20 +8,26 @@ import Experience from "./components/Experience";
 import Services from "./components/Services";
 import Intro from "./components/Intro";
 import IntroPage from "./components/IntroPage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 
-function App() {
+function AppContent() {
   const [isDark, setIsDark] = useState(true);
   const [showIntro, setShowIntro] = useState(true);
+  const navigate = useNavigate();
 
   const toggleTheme = () => {
     setIsDark(!isDark);
   };
 
+  const handleExplore = () => {
+    setShowIntro(false);
+    navigate('/');
+  };
+
   return (
-    <Router>
+    <>
       {showIntro ? (
-        <Intro onExplore={() => setShowIntro(false)} isDark={isDark} toggleTheme={toggleTheme} />
+        <Intro onExplore={handleExplore} isDark={isDark} toggleTheme={toggleTheme} />
       ) : (
         <div>
           <Header isDark={isDark} toggleTheme={toggleTheme} />
@@ -36,6 +42,14 @@ function App() {
           </Routes>
         </div>
       )}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

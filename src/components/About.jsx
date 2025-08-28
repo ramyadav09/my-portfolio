@@ -58,7 +58,7 @@ const About = ({ isDark }) => {
                 color: isDark ? "#67e8f9" : "#1e40af"
               }}
             >
-              🎓 2nd Year BTech CSE • KIIT University
+              🎓 2nd Year B.Tech CSE • KIIT University
             </p>
             <p
               className="text-base sm:text-lg font-medium"

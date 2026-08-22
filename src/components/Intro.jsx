@@ -46,11 +46,11 @@ const Intro = ({ onExplore, isDark, toggleTheme }) => {
           className="text-sm sm:text-base md:text-lg max-w-md sm:max-w-lg md:max-w-xl mx-auto mb-8 leading-relaxed"
           style={{color: isDark ? '#d1d5db' : '#6b7280'}}
         >
-          Crafting digital experiences with passion, precision, and cutting-edge technology.
+          Full Stack Developer building scalable web, mobile, and AI-powered applications with MERN, FastAPI, and React Native.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {["React", "JavaScript", "UI/UX", "Responsive"].map((tag, index) => (
+          {["MERN Stack", "FastAPI", "React Native", "Generative AI"].map((tag, index) => (
             <span
               key={tag}
               className="px-4 py-2 text-sm rounded-full border hover:scale-110 transition-all duration-300 animate-bounce"

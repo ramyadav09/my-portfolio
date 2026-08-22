@@ -11,10 +11,18 @@ const About = ({ isDark }) => {
   }, []);
 
   const skills = [
-    { name: "React", level: 60, color: isDark ? "#3b82f6" : "#1e40af" },
-    { name: "JavaScript", level: 70, color: isDark ? "#fbbf24" : "#d97706" },
-    { name: "Tailwind CSS", level: 80, color: isDark ? "#06b6d4" : "#0891b2" },
-    { name: "Node.js", level: 5, color: isDark ? "#10b981" : "#059669" },
+    { name: "React / React Native", level: 85, color: isDark ? "#3b82f6" : "#1e40af" },
+    { name: "Node.js / Express", level: 80, color: isDark ? "#10b981" : "#059669" },
+    { name: "MongoDB / PostgreSQL", level: 75, color: isDark ? "#4ade80" : "#16a34a" },
+    { name: "FastAPI / Python", level: 80, color: isDark ? "#fbbf24" : "#d97706" },
+    { name: "Tailwind CSS", level: 90, color: isDark ? "#06b6d4" : "#0891b2" },
+    { name: "RESTful APIs", level: 85, color: isDark ? "#f97316" : "#ea580c" },
+    { name: "Auth Systems (JWT/OAuth)", level: 80, color: isDark ? "#a855f7" : "#9333ea" },
+    { name: "Real-time (WebSockets)", level: 75, color: isDark ? "#ec4899" : "#db2777" },
+    { name: "Generative AI / LLMs", level: 70, color: isDark ? "#06b6d4" : "#0891b2" },
+    { name: "AI Automation", level: 65, color: isDark ? "#8b5cf6" : "#7c3aed" },
+    { name: "Software Architecture", level: 75, color: isDark ? "#14b8a6" : "#0d9488" },
+    { name: "Docker / Deployment", level: 70, color: isDark ? "#3b82f6" : "#2563eb" },
   ];
 
   return (

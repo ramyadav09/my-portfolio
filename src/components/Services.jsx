@@ -12,27 +12,27 @@ const Services = ({ isDark }) => {
   const services = [
     {
       icon: "🌐",
-      title: "Web Development",
-      description: "Building responsive and modern websites using HTML, CSS, JavaScript, and React",
-      features: ["Responsive Design", "Modern UI/UX", "Fast Loading", "Cross-browser Compatible"]
-    },
-    {
-      icon: "⚛️",
-      title: "React Development",
-      description: "Creating interactive web applications with React.js and modern JavaScript",
-      features: ["Component-based", "State Management", "Hooks & Context", "Performance Optimized"]
-    },
-    {
-      icon: "🎨",
-      title: "Frontend Design",
-      description: "Designing beautiful and user-friendly interfaces with Tailwind CSS",
-      features: ["Clean Design", "Mobile First", "Tailwind CSS", "Custom Animations"]
+      title: "Full Stack Web Development",
+      description: "Building scalable web applications using MERN Stack, FastAPI, PostgreSQL, and modern architectures",
+      features: ["MERN Stack", "FastAPI Backend", "PostgreSQL/MongoDB", "RESTful APIs", "Docker Deployment"]
     },
     {
       icon: "📱",
-      title: "Responsive Design",
-      description: "Ensuring your website looks great on all devices and screen sizes",
-      features: ["Mobile Friendly", "Tablet Optimized", "Desktop Ready", "Touch Friendly"]
+      title: "Cross-Platform Mobile Apps",
+      description: "Developing native-like mobile applications with React Native for iOS and Android",
+      features: ["React Native", "Expo / CLI", "Native Modules", "App Store Deployment", "Push Notifications"]
+    },
+    {
+      icon: "🤖",
+      title: "AI Integration & Automation",
+      description: "Integrating Generative AI, LLMs, and building intelligent automation workflows",
+      features: ["LLM Integration (OpenAI, etc.)", "RAG Systems", "AI Agents", "Prompt Engineering", "Vector Databases"]
+    },
+    {
+      icon: "⚡",
+      title: "Real-time & Backend Systems",
+      description: "Designing high-performance backend services with real-time capabilities",
+      features: ["WebSockets", "Socket.io", "Redis", "Microservices", "Authentication (JWT/OAuth)"]
     }
   ];
 
@@ -60,13 +60,13 @@ const Services = ({ isDark }) => {
               WebkitTextFillColor: 'transparent'
             }}
           >
-            My Services
+            My Expertise
           </h1>
           <p 
             className="text-base sm:text-lg max-w-2xl mx-auto"
             style={{color: isDark ? '#d1d5db' : '#6b7280'}}
           >
-            What I can offer as a frontend developer
+            Full Stack Developer specializing in MERN, FastAPI, React Native, and Generative AI
           </p>
         </div>
 
@@ -131,13 +131,13 @@ const Services = ({ isDark }) => {
             className="text-2xl font-bold mb-4"
             style={{color: isDark ? 'white' : '#111827'}}
           >
-            Ready to Work Together?
+            Let's Build Something Great
           </h2>
           <p 
             className="mb-6 max-w-2xl mx-auto"
             style={{color: isDark ? '#d1d5db' : '#6b7280'}}
           >
-            I'm excited to help bring your ideas to life with clean, modern, and responsive web solutions.
+            From scalable web apps to AI-powered solutions — ready to bring your vision to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
@@ -145,7 +145,7 @@ const Services = ({ isDark }) => {
               className="px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 text-white text-center"
               style={{background: 'linear-gradient(135deg, #06b6d4, #7c3aed)'}}
             >
-              Get Started
+              Get In Touch
             </Link>
             <Link 
               to="/portfolio"
@@ -156,7 +156,7 @@ const Services = ({ isDark }) => {
                 background: isDark ? 'rgba(6, 182, 212, 0.1)' : 'rgba(59, 130, 246, 0.1)'
               }}
             >
-              View Portfolio
+              View Projects
             </Link>
           </div>
         </div>

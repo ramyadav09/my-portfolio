@@ -10,123 +10,158 @@ const Portfolio = ({ isDark }) => {
   }, []);
 
   const skills = [
-    { name: "HTML", icon: "🌐", level: 90 },
-    { name: "CSS", icon: "🎨", level: 85 },
-    { name: "Tailwind", icon: "💨", level: 88 },
-    { name: "React JS", icon: "⚛️", level: 82 },
-    { name: "GitHub", icon: "🐙", level: 80 },
-    { name: "VS Code", icon: "💻", level: 95 }
+    { name: "React / React Native", icon: "⚛️", level: 85 },
+    { name: "Node.js / Express", icon: "🟢", level: 80 },
+    { name: "MongoDB / PostgreSQL", icon: "🗄️", level: 75 },
+    { name: "FastAPI / Python", icon: "🐍", level: 80 },
+    { name: "Tailwind CSS", icon: "💨", level: 90 },
+    { name: "RESTful APIs", icon: "🔗", level: 85 },
+    { name: "Auth (JWT/OAuth)", icon: "🔐", level: 80 },
+    { name: "Real-time (WS)", icon: "⚡", level: 75 },
+    { name: "Generative AI / LLMs", icon: "🤖", level: 70 },
+    { name: "AI Automation", icon: "🔄", level: 65 },
+    { name: "Software Architecture", icon: "🏗️", level: 75 },
+    { name: "Docker / Deployment", icon: "🐳", level: 70 },
   ];
 
   const projects = [
     {
       title: "E-Commerce Website",
-      tech: ["React", "Tailwind", "Node.js"],
+      tech: ["React", "Node.js", "MongoDB", "Tailwind"],
       description: "Modern e-commerce platform with cart functionality",
       github: "#",
-      live: "#"
+      live: "#",
     },
     {
       title: "Portfolio Website",
-      tech: ["React", "CSS", "JavaScript"],
+      tech: ["React", "Tailwind", "Node.js"],
       description: "Responsive portfolio with dark theme",
       github: "#",
-      live: "#"
+      live: "#",
     },
     {
       title: "Task Manager App",
-      tech: ["React", "HTML", "CSS"],
-      description: "Todo app with local storage",
+      tech: ["React Native", "FastAPI", "PostgreSQL"],
+      description: "Cross-platform task manager with real-time sync",
       github: "#",
-      live: "#"
-    }
+      live: "#",
+    },
+    {
+      title: "AI Chat Application",
+      tech: ["React", "FastAPI", "LLM Integration", "WebSockets"],
+      description: "Real-time AI chat with streaming responses",
+      github: "#",
+      live: "#",
+    },
+    {
+      title: "Auth System Boilerplate",
+      tech: ["Node.js", "Express", "JWT", "PostgreSQL"],
+      description: "Production-ready authentication with RBAC",
+      github: "#",
+      live: "#",
+    },
+    {
+      title: "Dockerized Microservice",
+      tech: ["FastAPI", "Docker", "PostgreSQL", "Redis"],
+      description: "Scalable microservice architecture",
+      github: "#",
+      live: "#",
+    },
   ];
 
   return (
-    <section 
+    <section
       className={`min-h-screen pt-20 px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       style={{
-        background: isDark 
-          ? 'linear-gradient(135deg, #0f0f23, #1e1b4b, #7c3aed)' 
-          : 'linear-gradient(135deg, #ffffff, #f3f4f6, #ddd6fe)',
-        color: isDark ? 'white' : '#111827'
+        background: isDark
+          ? "linear-gradient(135deg, #0f0f23, #1e1b4b, #7c3aed)"
+          : "linear-gradient(135deg, #ffffff, #f3f4f6, #ddd6fe)",
+        color: isDark ? "white" : "#111827",
       }}
     >
       <div className="max-w-6xl mx-auto">
-        <div className={`text-center mb-16 transition-all duration-1000 delay-300 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
-        }`}>
-          <h1 
+        <div
+          className={`text-center mb-16 transition-all duration-1000 delay-300 ${
+            isVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-10"
+          }`}
+        >
+          <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
             style={{
-              background: 'linear-gradient(135deg, #06b6d4, #7c3aed, #ec4899)', 
-              WebkitBackgroundClip: 'text', 
-              WebkitTextFillColor: 'transparent'
+              background: "linear-gradient(135deg, #06b6d4, #7c3aed, #ec4899)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
             }}
           >
             My Portfolio
           </h1>
-          <p 
+          <p
             className="text-lg sm:text-xl max-w-2xl mx-auto"
-            style={{color: isDark ? '#d1d5db' : '#6b7280'}}
+            style={{ color: isDark ? "#d1d5db" : "#6b7280" }}
           >
             Showcasing my skills and projects in web development
           </p>
         </div>
 
-        <div className={`mb-20 transition-all duration-1000 delay-500 ${
-          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-        }`}>
-          <h2 
+        <div
+          className={`mb-20 transition-all duration-1000 delay-500 ${
+            isVisible
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 -translate-x-10"
+          }`}
+        >
+          <h2
             className="text-3xl sm:text-4xl font-bold mb-12 text-center"
-            style={{color: isDark ? '#06b6d4' : '#3b82f6'}}
+            style={{ color: isDark ? "#06b6d4" : "#3b82f6" }}
           >
             Skills & Technologies
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {skills.map((skill, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="p-6 rounded-2xl backdrop-blur-sm border hover:scale-105 transition-all duration-300"
                 style={{
-                  background: isDark 
-                    ? 'rgba(30, 27, 75, 0.6)' 
-                    : 'rgba(255, 255, 255, 0.8)',
-                  borderColor: isDark 
-                    ? 'rgba(168, 85, 247, 0.2)' 
-                    : 'rgba(59, 130, 246, 0.2)'
+                  background: isDark
+                    ? "rgba(30, 27, 75, 0.6)"
+                    : "rgba(255, 255, 255, 0.8)",
+                  borderColor: isDark
+                    ? "rgba(168, 85, 247, 0.2)"
+                    : "rgba(59, 130, 246, 0.2)",
                 }}
               >
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-3xl">{skill.icon}</span>
-                  <h3 
+                  <h3
                     className="text-xl font-semibold"
-                    style={{color: isDark ? 'white' : '#111827'}}
+                    style={{ color: isDark ? "white" : "#111827" }}
                   >
                     {skill.name}
                   </h3>
                 </div>
-                <div 
+                <div
                   className="w-full rounded-full h-2"
                   style={{
-                    background: isDark 
-                      ? 'rgba(75, 85, 99, 0.5)' 
-                      : 'rgba(229, 231, 235, 0.8)'
+                    background: isDark
+                      ? "rgba(75, 85, 99, 0.5)"
+                      : "rgba(229, 231, 235, 0.8)",
                   }}
                 >
-                  <div 
+                  <div
                     className="h-2 rounded-full transition-all duration-1000"
-                    style={{ 
-                      width: `${skill.level}%`, 
-                      background: 'linear-gradient(135deg, #06b6d4, #7c3aed)' 
+                    style={{
+                      width: `${skill.level}%`,
+                      background: "linear-gradient(135deg, #06b6d4, #7c3aed)",
                     }}
                   ></div>
                 </div>
-                <p 
+                <p
                   className="text-sm mt-2"
-                  style={{color: isDark ? '#d1d5db' : '#6b7280'}}
+                  style={{ color: isDark ? "#d1d5db" : "#6b7280" }}
                 >
                   {skill.level}% Proficiency
                 </p>
@@ -135,63 +170,69 @@ const Portfolio = ({ isDark }) => {
           </div>
         </div>
 
-        <div className={`mb-20 transition-all duration-1000 delay-700 ${
-          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-        }`}>
-          <h2 
+        <div
+          className={`mb-20 transition-all duration-1000 delay-700 ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+          }`}
+        >
+          <h2
             className="text-3xl sm:text-4xl font-bold mb-12 text-center"
-            style={{color: isDark ? '#06b6d4' : '#3b82f6'}}
+            style={{ color: isDark ? "#06b6d4" : "#3b82f6" }}
           >
             Featured Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="rounded-2xl overflow-hidden backdrop-blur-sm border hover:scale-105 transition-all duration-300"
                 style={{
-                  background: isDark 
-                    ? 'rgba(30, 27, 75, 0.6)' 
-                    : 'rgba(255, 255, 255, 0.8)',
-                  borderColor: isDark 
-                    ? 'rgba(168, 85, 247, 0.2)' 
-                    : 'rgba(59, 130, 246, 0.2)'
+                  background: isDark
+                    ? "rgba(30, 27, 75, 0.6)"
+                    : "rgba(255, 255, 255, 0.8)",
+                  borderColor: isDark
+                    ? "rgba(168, 85, 247, 0.2)"
+                    : "rgba(59, 130, 246, 0.2)",
                 }}
               >
-                <div 
+                <div
                   className="h-48 flex items-center justify-center"
                   style={{
-                    background: isDark 
-                      ? 'linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(124, 58, 237, 0.2))' 
-                      : 'linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(124, 58, 237, 0.1))'
+                    background: isDark
+                      ? "linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(124, 58, 237, 0.2))"
+                      : "linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(124, 58, 237, 0.1))",
                   }}
                 >
                   <span className="text-6xl">🚀</span>
                 </div>
                 <div className="p-6">
-                  <h3 
+                  <h3
                     className="text-xl font-bold mb-2"
-                    style={{color: isDark ? 'white' : '#111827'}}
+                    style={{ color: isDark ? "white" : "#111827" }}
                   >
                     {project.title}
                   </h3>
-                  <p 
+                  <p
                     className="mb-4"
-                    style={{color: isDark ? '#d1d5db' : '#6b7280'}}
+                    style={{ color: isDark ? "#d1d5db" : "#6b7280" }}
                   >
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, i) => (
-                      <span 
-                        key={i} 
+                      <span
+                        key={i}
                         className="px-3 py-1 rounded-full text-sm"
                         style={{
-                          background: isDark 
-                            ? 'rgba(6, 182, 212, 0.2)' 
-                            : 'rgba(6, 182, 212, 0.1)',
-                          border: `1px solid ${isDark ? 'rgba(34, 211, 238, 0.3)' : 'rgba(6, 182, 212, 0.3)'}`,
-                          color: isDark ? '#67e8f9' : '#06b6d4'
+                          background: isDark
+                            ? "rgba(6, 182, 212, 0.2)"
+                            : "rgba(6, 182, 212, 0.1)",
+                          border: `1px solid ${
+                            isDark
+                              ? "rgba(34, 211, 238, 0.3)"
+                              : "rgba(6, 182, 212, 0.3)"
+                          }`,
+                          color: isDark ? "#67e8f9" : "#06b6d4",
                         }}
                       >
                         {tech}
@@ -199,22 +240,24 @@ const Portfolio = ({ isDark }) => {
                     ))}
                   </div>
                   <div className="flex gap-4">
-                    <a 
-                      href={project.github} 
+                    <a
+                      href={project.github}
                       className="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:scale-105"
                       style={{
-                        background: isDark 
-                          ? 'linear-gradient(135deg, #374151, #4b5563)' 
-                          : 'linear-gradient(135deg, #d1d5db, #e5e7eb)',
-                        color: isDark ? 'white' : '#111827'
+                        background: isDark
+                          ? "linear-gradient(135deg, #374151, #4b5563)"
+                          : "linear-gradient(135deg, #d1d5db, #e5e7eb)",
+                        color: isDark ? "white" : "#111827",
                       }}
                     >
                       GitHub
                     </a>
-                    <a 
-                      href={project.live} 
+                    <a
+                      href={project.live}
                       className="px-4 py-2 rounded-lg text-sm font-medium text-white transition-all hover:scale-105"
-                      style={{ background: 'linear-gradient(135deg, #06b6d4, #7c3aed)' }}
+                      style={{
+                        background: "linear-gradient(135deg, #06b6d4, #7c3aed)",
+                      }}
                     >
                       Live Demo
                     </a>
@@ -225,46 +268,51 @@ const Portfolio = ({ isDark }) => {
           </div>
         </div>
 
-        <div 
+        <div
           className="text-center p-8 rounded-2xl backdrop-blur-sm border"
           style={{
-            background: isDark 
-              ? 'rgba(30, 27, 75, 0.5)' 
-              : 'rgba(255, 255, 255, 0.7)',
-            borderColor: isDark 
-              ? 'rgba(168, 85, 247, 0.2)' 
-              : 'rgba(59, 130, 246, 0.2)'
+            background: isDark
+              ? "rgba(30, 27, 75, 0.5)"
+              : "rgba(255, 255, 255, 0.7)",
+            borderColor: isDark
+              ? "rgba(168, 85, 247, 0.2)"
+              : "rgba(59, 130, 246, 0.2)",
           }}
         >
-          <h2 
+          <h2
             className="text-2xl sm:text-3xl font-bold mb-4"
-            style={{color: isDark ? 'white' : '#111827'}}
+            style={{ color: isDark ? "white" : "#111827" }}
           >
             Let's Work Together
           </h2>
-          <p 
+          <p
             className="mb-6 max-w-2xl mx-auto"
-            style={{color: isDark ? '#d1d5db' : '#6b7280'}}
+            style={{ color: isDark ? "#d1d5db" : "#6b7280" }}
           >
-            Ready to bring your ideas to life? Let's create something amazing together.
+            Ready to bring your ideas to life? Let's create something amazing
+            together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <a
               href="https://github.com/ramyadav09"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 text-white text-center"
-              style={{ background: 'linear-gradient(135deg, #06b6d4, #7c3aed)' }}
+              style={{
+                background: "linear-gradient(135deg, #06b6d4, #7c3aed)",
+              }}
             >
               View All Projects
             </a>
-            <Link 
+            <Link
               to="/contact"
               className="px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 text-center"
               style={{
-                border: `2px solid ${isDark ? '#06b6d4' : '#3b82f6'}`,
-                color: isDark ? '#06b6d4' : '#3b82f6',
-                background: isDark ? 'rgba(6, 182, 212, 0.1)' : 'rgba(59, 130, 246, 0.1)'
+                border: `2px solid ${isDark ? "#06b6d4" : "#3b82f6"}`,
+                color: isDark ? "#06b6d4" : "#3b82f6",
+                background: isDark
+                  ? "rgba(6, 182, 212, 0.1)"
+                  : "rgba(59, 130, 246, 0.1)",
               }}
             >
               Contact Me

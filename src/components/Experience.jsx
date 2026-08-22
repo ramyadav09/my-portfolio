@@ -12,25 +12,32 @@ const Experience = ({ isDark }) => {
   const experiences = [
     {
       year: "2024 - Present",
-      title: "Learning Frontend Development",
-      company: "Self-Study",
-      description: "Currently learning React.js, JavaScript, and modern web development technologies through online courses and practice projects",
-      skills: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"]
+      title: "Full Stack Developer",
+      company: "Freelance / Projects",
+      description: "Building scalable web, mobile, and AI-powered applications using MERN Stack, FastAPI, PostgreSQL, and React Native. Specialized in RESTful APIs, authentication systems, real-time applications, and Generative AI integrations.",
+      skills: ["React", "Node.js", "MongoDB", "PostgreSQL", "FastAPI", "React Native", "Tailwind CSS", "Docker"]
     },
     {
-      year: "2023 - 2024", 
-      title: "Web Development Basics",
+      year: "2023 - 2024",
+      title: "MERN Stack Development",
+      company: "Self-Directed Learning",
+      description: "Mastered full-stack development with MongoDB, Express, React, and Node.js. Built multiple production-ready applications with JWT authentication, real-time features, and responsive UIs.",
+      skills: ["React", "Express", "MongoDB", "JWT", "WebSockets", "Tailwind CSS", "Git"]
+    },
+    {
+      year: "2022 - 2023",
+      title: "Frontend Foundations",
       company: "Online Courses",
-      description: "Started my journey in web development by learning HTML, CSS, and basic JavaScript fundamentals",
-      skills: ["HTML", "CSS", "JavaScript", "Git"]
+      description: "Built strong foundations in HTML, CSS, JavaScript, and React. Learned modern CSS with Tailwind, component-based architecture, and state management.",
+      skills: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS", "Git"]
     }
   ];
 
   const learningGoals = [
-    { icon: "📚", title: "Currently Learning", desc: "React.js & Modern JavaScript" },
-    { icon: "🎯", title: "Next Goal", desc: "Build 5+ Portfolio Projects" },
-    { icon: "💼", title: "Career Target", desc: "Frontend Developer Role" },
-    { icon: "🚀", title: "Future Plan", desc: "Full-Stack Development" }
+    { icon: "🤖", title: "Currently Learning", desc: "Generative AI & LLM Integration" },
+    { icon: "🚀", title: "Next Goal", desc: "Deploy AI-Powered SaaS Products" },
+    { icon: "🏗️", title: "Career Target", desc: "Senior Full Stack / AI Engineer" },
+    { icon: "📚", title: "Future Plan", desc: "MLOps & Scalable AI Systems" }
   ];
 
   return (
@@ -57,13 +64,13 @@ const Experience = ({ isDark }) => {
               WebkitTextFillColor: 'transparent'
             }}
           >
-            My Learning Journey
+            Professional Experience
           </h1>
           <p 
             className="text-base sm:text-lg max-w-2xl mx-auto"
             style={{color: isDark ? '#d1d5db' : '#6b7280'}}
           >
-            As a beginner in frontend development, here's my learning path and goals
+            Building scalable web, mobile, and AI-powered applications with modern technologies
           </p>
         </div>
 
@@ -74,7 +81,7 @@ const Experience = ({ isDark }) => {
             className="text-2xl font-bold mb-8 text-center"
             style={{color: isDark ? '#06b6d4' : '#3b82f6'}}
           >
-            Learning Experience
+            Work Experience
           </h2>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
@@ -153,7 +160,7 @@ const Experience = ({ isDark }) => {
             className="text-2xl font-bold mb-8 text-center"
             style={{color: isDark ? '#06b6d4' : '#3b82f6'}}
           >
-            Learning Goals & Aspirations
+            Focus Areas & Goals
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {learningGoals.map((goal, index) => (
